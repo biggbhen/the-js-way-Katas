@@ -96,6 +96,7 @@
 //  console.log('is there a new calendar?');
 // }
 
+
 // Following second
 // Write a program that asks for a time under the form of three information (hours, minutes, seconds). The program calculates and shows the time one second after. Incorrect inputs must be taken into account.
 
@@ -104,3 +105,27 @@
 // 14h17m59s => 14h18m0s
 // 6h59m59s => 7h0m0s
 // 23h59m59s => 0h0m0s (midnight)
+let time;
+let hours = Number(prompt('what hour is it?'))
+let minutes = Number(prompt('what minute is it?'))
+let seconds = Number(prompt('what second is it?'))
+if(seconds <= 59 && seconds >= 0 && minutes <= 59 && minutes >= 0 && hours >= 0 && hours <= 23){
+ seconds++;
+}else if(seconds >= 60){
+ seconds = 0;
+ minutes++;
+}else if(minutes >= 60){
+ minutes = 0;
+ seconds++;
+ hours++;
+}else if(hours >= 24){
+ hours = 0;
+ seconds++;
+}else if(minutes >= 60 && hours >= 24 && seconds >= 60){
+minutes=0;
+hours=0;
+seconds=0;
+}else{
+ console.log('enter a valid info')
+}
+console.log(`${hours}h ${minutes}m ${seconds}s `)
